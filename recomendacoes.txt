@@ -1,0 +1,32 @@
+Deletar venv
+    - deletar a pasta venv original
+
+instalação do virtualenv
+    - pip install virtualenv
+    - python -m venv venv
+    - .\venv\scripts\activate
+
+Instalação dos requiriments.txt
+    - pip install -r requirements.txt
+    - pip install -r requirements_dev.txt
+
+Subindo a aplicação
+    - python manage.py runserver
+    - Ctrl + click no http://127.0.0.1:8000/ para abrir a página
+    - Navegar pelo browser seguindo as definições das urls de cada app
+
+    Deploy: Criar conta e aguardar o momento de subir a aplicação.
+    # https://www.pythonanywhere.com/user/mpvd2210/consoles/
+
+
+    Criar token:
+        - http://127.0.0.1:8000/api/v1/authentication/token/
+        - Copiar token access
+    Validar token:
+        - http://127.0.0.1:8000/api/v1/authentication/token/verify/
+        - Colar token access gerado
+
+Deploy api  
+    No github criar novo repositório dj_samir
+    
+        
