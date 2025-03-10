@@ -1,6 +1,3 @@
-Deletar venv
-    - deletar a pasta venv original
-
 instalação do virtualenv
     - pip install virtualenv
     - python -m venv venv
