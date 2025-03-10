@@ -27,6 +27,21 @@ Subindo a aplicação
         - Colar token access gerado
 
 Deploy api  
-    No github criar novo repositório dj_samir
-    
+    No github criar novo repositório dj_samir_api
+
+    criar na raiz do programa o arquivo ".gitignore" escreva no arquivo os ítens abaixo:
+        venv
+        *.sqlite3
+        __pycache__/
+
+    Iniciar pelo comando shell
+    git init ENTER
+    git add . ENTER
+    git commit -am "first commit" ENTER
+    git branch -M main ENTER
+    git remote add origin https://github.com/xxxxxxxxx/dj_samir.git ENTER
+    git push -u origin main
+
+
+
         
