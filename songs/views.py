@@ -46,7 +46,7 @@ class SongStatsView(views.APIView):
         average_stars = Review.objects.aggregate(avg_stars=Avg('stars'))['avg_stars']
 
         data = {
-            'total_movies': total_songs,
+            'total_songs': total_songs,
             'songs_by_genre': songs_by_genre,
             'total_reviews': total_reviews,
             'average_stars': round(average_stars, 2) if average_stars else 0
