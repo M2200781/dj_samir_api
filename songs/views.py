@@ -49,7 +49,7 @@ class SongStatsView(views.APIView):
             'total_songs': total_songs,
             'songs_by_genre': songs_by_genre,
             'total_reviews': total_reviews,
-            'average_stars': round(average_stars, 2) if average_stars else 0
+            'average_stars': round(average_stars, 1) if average_stars else 0
         }
         serializer = SongStatsSerializer(data=data)
         serializer.is_valid(raise_exception=True)
