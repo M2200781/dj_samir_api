@@ -2,7 +2,7 @@ from genres.models import Genre
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError
 from rest_framework import generics
-from app.permissions import GlobalPermission
+from app.permissions import GlobalDefaultPermission
 from genres.serializers import GenreSerializer
 
 
@@ -10,7 +10,7 @@ from genres.serializers import GenreSerializer
 # Cria e Lista
 
 class GenreCreateListView(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated, GlobalPermission,)
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
 
@@ -25,6 +25,6 @@ class GenreCreateListView(generics.ListCreateAPIView):
 
 # Recupera, Modifica e deleta a partir de uma seleção por id (PUT/DELETE)
 class GenreRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticated, GlobalPermission,)
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
