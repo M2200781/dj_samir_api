@@ -2,14 +2,14 @@ from django.db.models import Count, Avg
 from rest_framework import generics, views, response, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError
-from app.permissions import GlobalPermission
+from app.permissions import GlobalDefaultPermission
 from songs.models import Song
 from songs.serializers import SongModelSerializer, SongStatsSerializer, SongListDetailSerializer
 from reviews.models import Review
 
 
 class SongCreateListView(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated, GlobalPermission,)
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Song.objects.all()
     # serializer_class = MovieModelSerializer
 
@@ -26,7 +26,7 @@ class SongCreateListView(generics.ListCreateAPIView):
 
 
 class SongRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticated, GlobalPermission,)
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Song.objects.all()
 
     def get_serializer_class(self):
@@ -36,7 +36,7 @@ class SongRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class SongStatsView(views.APIView):
-    permission_classes = (IsAuthenticated, GlobalPermission,)
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Song.objects.all()
 
     def get(self, request):
