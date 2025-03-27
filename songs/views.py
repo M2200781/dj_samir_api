@@ -51,6 +51,6 @@ class SongStatsView(views.APIView):
             'total_reviews': total_reviews,
             'average_stars': round(average_stars, 1) if average_stars else 0
         }
-        serializer = SongStatsSerializer(data=data)
-        serializer.is_valid(raise_exception=True)
+        # serializer = SongStatsSerializer(data=data)
+        # serializer.is_valid(raise_exception=True)
         return response.Response(data=serializer.validated_data, status=status.HTTP_200_OK)
