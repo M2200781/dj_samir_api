@@ -2,12 +2,12 @@ from artist.models import Artist
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError
-from app.permissions import GlobalPermission
+from app.permissions import GlobalDefaultPermission
 from artist.serializers import ArtistSerializer
 
 
 class ArtistCreatelistView(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated, GlobalPermission,)
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
 
@@ -20,6 +20,6 @@ class ArtistCreatelistView(generics.ListCreateAPIView):
 
 
 class ArtistRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = (IsAuthenticated, GlobalPermission,)
+    permission_classes = (IsAuthenticated, GlobalDefaultPermission,)
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
