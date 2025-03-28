@@ -40,7 +40,7 @@ class SongStatsView(views.APIView):
     queryset = Song.objects.all()
 
     def get(self, request):
-        total_songs = self.queryset.count(list())
+        total_songs = self.queryset.count()
         songs_by_genre = self.queryset.values('genre__name').annotate(count=Count('id'))
         total_reviews = Review.objects.count()
         average_stars = Review.objects.aggregate(avg_stars=Avg('stars'))['avg_stars']
