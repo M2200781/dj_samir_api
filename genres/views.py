@@ -14,13 +14,13 @@ class GenreCreateListView(generics.ListCreateAPIView):
     queryset = Genre.objects.all()
     serializer_class = GenreSerializer
 
-    def create(self, request, *args, **kwargs):
-        # Verifica se o gênero já existe
-        genre_name = request.data.get('name')
-        if Genre.objects.filter(name=genre_name).exists():
-            raise ValidationError(f'O gênero "{genre_name}" já existe.')
-        # Chama o método create original se o gênero não existir
-        return super().create(request, *args, **kwargs)
+    # def create(self, request, *args, **kwargs):
+    #     # Verifica se o gênero já existe
+    #     genre_name = request.data.get('name')
+    #     if Genre.objects.filter(name=genre_name).exists():
+    #         raise ValidationError(f'O gênero "{genre_name}" já existe.')
+    #     # Chama o método create original se o gênero não existir
+    #     return super().create(request, *args, **kwargs)
 
 
 # Recupera, Modifica e deleta a partir de uma seleção por id (PUT/DELETE)
