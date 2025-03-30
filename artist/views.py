@@ -11,12 +11,12 @@ class ArtistCreatelistView(generics.ListCreateAPIView):
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
 
-    def create(self, request, *args, **kwargs):
-        # Verifica se o gênero já existe
-        artist_name = request.data.get('name')
-        if Artist.objects.filter(name=artist_name).exists():
-            raise ValidationError(f'O gênero "{artist_name}" já existe.')
-        return super().create(request, *args, **kwargs)
+    # def create(self, request, *args, **kwargs):
+    #     # Verifica se o gênero já existe
+    #     artist_name = request.data.get('name')
+    #     if Artist.objects.filter(name=artist_name).exists():
+    #         raise ValidationError(f'O gênero "{artist_name}" já existe.')
+    #     return super().create(request, *args, **kwargs)
 
 
 class ArtistRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
